@@ -1,0 +1,2187 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetsites Agency | Strony internetowe, ktore sprzedaja</title>
+    <meta name="description" content="Jetsites tworzy profesjonalne strony internetowe, sklepy online i landing page'e w ciemnej, premium estetyce. Sprawdz cennik i wycen swoj projekt.">
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #040913;
+            --bg-soft: #08111d;
+            --bg-panel: rgba(12, 22, 38, 0.9);
+            --bg-panel-strong: rgba(8, 16, 29, 0.96);
+            --line: rgba(255, 255, 255, 0.16);
+            --line-strong: rgba(255, 255, 255, 0.28);
+            --text: #f6f8fc;
+            --muted: #b1bfd1;
+            --muted-strong: #f1f5fb;
+            --accent: #ffffff;
+            --accent-soft: #e7eefc;
+            --gold: #d6b36a;
+            --gold-soft: #f1e1b7;
+            --gold-line: rgba(214, 179, 106, 0.34);
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+            --radius-xl: 28px;
+            --radius-lg: 22px;
+            --container: 1240px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(122, 144, 182, 0.12), transparent 24%),
+                radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.045), transparent 16%),
+                linear-gradient(180deg, #040913 0%, #07101b 34%, #091423 100%);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(var(--container), calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .section-shell {
+            padding: 84px 0;
+            position: relative;
+        }
+
+        .light-surface {
+            background: #ffffff;
+            color: #09121f;
+        }
+
+        .light-surface .section-head h2,
+        .light-surface .section-head h3,
+        .light-surface .service-card h3,
+        .light-surface .price-card h3,
+        .light-surface .contact-card h3,
+        .light-surface .calc-result h3,
+        .light-surface .price-tag,
+        .light-surface .calc-total {
+            color: #0a1422;
+        }
+
+        .light-surface .section-head p {
+            color: #4e5c6c;
+        }
+
+        .light-surface .service-card,
+        .light-surface .price-card,
+        .light-surface .contact-card,
+        .light-surface .calc-card,
+        .light-surface .faq-item {
+            background: linear-gradient(180deg, #0a1525 0%, #0f1c31 100%);
+            border: 1px solid rgba(10, 20, 34, 0.16);
+            box-shadow: 0 24px 50px rgba(9, 18, 31, 0.12);
+        }
+
+        .light-surface .service-card h3,
+        .light-surface .price-card h3,
+        .light-surface .contact-card h3,
+        .light-surface .calc-result h3,
+        .light-surface .price-tag,
+        .light-surface .calc-total,
+        .light-surface .faq-question strong {
+            color: var(--text);
+        }
+
+        .light-surface .service-card p,
+        .light-surface .price-card p,
+        .light-surface .contact-card p,
+        .light-surface .calc-summary,
+        .light-surface .calc-note,
+        .light-surface .price-list li,
+        .light-surface .contact-list li,
+        .light-surface .field label,
+        .light-surface .range-top,
+        .light-surface .check,
+        .light-surface .faq-answer {
+            color: var(--muted);
+        }
+
+        .light-surface .field input,
+        .light-surface .field select,
+        .light-surface .field textarea,
+        .light-surface .check,
+        .light-surface .calc-result {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: var(--text);
+        }
+
+        .light-surface .secondary-button {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+
+        .light-surface .eyebrow {
+            background: rgba(11, 38, 79, 0.08);
+            border-color: rgba(11, 38, 79, 0.22);
+            color: #163a69;
+        }
+
+        .light-surface .eyebrow::before {
+            background: #163a69;
+            box-shadow: 0 0 10px rgba(22, 58, 105, 0.22);
+        }
+
+        #kontakt .eyebrow {
+            background: rgba(214, 179, 106, 0.08);
+            border-color: var(--gold-line);
+            color: var(--gold-soft);
+        }
+
+        #kontakt .eyebrow::before {
+            background: var(--gold);
+            box-shadow: 0 0 10px rgba(214, 179, 106, 0.35);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            border: 1px solid var(--gold-line);
+            border-radius: 999px;
+            background: rgba(214, 179, 106, 0.08);
+            color: var(--gold-soft);
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 10px rgba(214, 179, 106, 0.35);
+        }
+
+        .section-head {
+            display: grid;
+            gap: 14px;
+            max-width: 760px;
+            margin-bottom: 30px;
+        }
+
+        .section-head h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4.1vw, 3.35rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            font-weight: 600;
+        }
+
+        .section-head p {
+            color: var(--muted);
+            font-size: 1.06rem;
+            line-height: 1.7;
+        }
+
+        .preloader {
+            position: fixed;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: #040913;
+            z-index: 10000;
+            transition: opacity 0.55s ease, visibility 0.55s ease;
+        }
+
+        .preloader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-mark {
+            position: relative;
+            width: min(92vw, 980px);
+            height: min(72vw, 560px);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        .preloader-scene {
+            position: absolute;
+            inset: 0;
+        }
+
+        .preloader-plane-wrap {
+            position: absolute;
+            left: 8%;
+            top: 17%;
+            width: 112px;
+            height: 96px;
+            animation: preloaderFlight 4.9s cubic-bezier(0.42, 0, 0.18, 1) forwards;
+            transform-origin: center;
+            z-index: 2;
+        }
+
+        .preloader-plane-rotator {
+            position: absolute;
+            inset: 0;
+            animation: preloaderHeading 4.9s linear forwards;
+            transform-origin: center;
+        }
+
+        .preloader-plane {
+            position: absolute;
+            inset: 0;
+            width: 112px;
+            height: 96px;
+            display: grid;
+            place-items: center;
+            filter: drop-shadow(0 0 26px rgba(255, 255, 255, 0.12));
+        }
+
+        .preloader-plane img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .preloader-lockup {
+            position: relative;
+            display: grid;
+            justify-items: center;
+            gap: 14px;
+            transform: translateY(18px) scale(0.9);
+            opacity: 0;
+            animation: lockupReveal 1.2s cubic-bezier(0.2, 0.75, 0.18, 1) 3.15s forwards, lockupPulse 0.75s ease-out 4.25s forwards;
+            z-index: 3;
+        }
+
+        .preloader-logo {
+            width: min(86vw, 700px);
+            height: auto;
+            filter: drop-shadow(0 18px 48px rgba(0, 0, 0, 0.38));
+            display: block;
+        }
+
+        .preloader-submark {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(0.92rem, 1.8vw, 1.2rem);
+            letter-spacing: 0.48em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.72);
+            padding-left: 0.48em;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: submarkLift 0.72s ease-out 3.78s forwards;
+        }
+
+        .preloader-copy {
+            display: none;
+        }
+
+        .brand-stage {
+            --plane-size: 112px;
+            --wordmark-ratio: 2.1765;
+            --word-offset: calc(var(--plane-size) * 0.805);
+            --wordmark-width: calc(var(--plane-size) * var(--wordmark-ratio));
+            --plane-land-x: calc(var(--plane-size) * 0.065);
+            --agency-gap: 10px;
+            --dock-x: 50%;
+            --dock-y: 50%;
+            --flight-duration: 5.35s;
+            --word-delay: calc(var(--flight-duration) + 0.42s);
+            --agency-delay: calc(var(--word-delay) + 0.48s);
+            --pulse-delay: calc(var(--agency-delay) + 0.68s);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-stage::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.05), transparent 28%);
+            pointer-events: none;
+        }
+
+        .brand-lockup-anchor {
+            position: absolute;
+            left: var(--dock-x);
+            top: var(--dock-y);
+            width: calc(var(--word-offset) + var(--wordmark-width));
+            min-height: calc(var(--plane-size) + 42px);
+            transform: translate(-50%, -50%);
+            transform-origin: center;
+        }
+
+        .brand-flight {
+            position: absolute;
+            left: var(--plane-land-x);
+            top: calc(50% - (var(--plane-size) * 0.35));
+            width: var(--plane-size);
+            offset-distance: 0%;
+            offset-rotate: 0deg;
+            animation: brandFlight var(--flight-duration) linear both;
+            z-index: 2;
+        }
+
+        .brand-flight-rotator {
+            width: 100%;
+            transform-origin: center;
+            animation: brandBank var(--flight-duration) linear both;
+        }
+
+        .brand-plane {
+            width: 100%;
+            filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.14));
+        }
+
+        .brand-plane img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .brand-wording {
+            position: absolute;
+            left: var(--word-offset);
+            top: calc(50% - (var(--plane-size) * 0.562));
+            display: block;
+            transform-origin: left center;
+            opacity: 0;
+            animation: brandWordReveal 0.72s ease-out var(--word-delay) both;
+        }
+
+        .brand-wordmark {
+            width: var(--wordmark-width);
+            max-width: none;
+            display: block;
+            filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.24));
+        }
+
+        .brand-agency {
+            position: absolute;
+            left: 0;
+            top: calc(100% + var(--agency-gap));
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(0.92rem, 1.5vw, 1.12rem);
+            letter-spacing: 0.46em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.76);
+            opacity: 0;
+            transform: translateY(24px);
+            animation: brandAgencyReveal 0.8s cubic-bezier(0.2, 0.78, 0.18, 1) var(--agency-delay) both;
+            white-space: nowrap;
+        }
+
+        .brand-stage--preloader {
+            --flight-duration: 2.95s;
+            --word-delay: calc(var(--flight-duration) + 0.12s);
+            --agency-delay: calc(var(--word-delay) + 0.16s);
+            --pulse-delay: calc(var(--agency-delay) + 0.2s);
+            --dock-x: 47.8%;
+            --dock-y: 47.2%;
+            background: transparent;
+        }
+
+        .brand-stage--preloader::before {
+            display: none;
+        }
+
+        .brand-stage--preloader .brand-lockup-anchor {
+            animation: brandLockupPulse 0.72s ease-out var(--pulse-delay) both;
+        }
+
+        .brand-stage--preloader .brand-flight {
+            offset-path: path("M -430 6 C -394 -118 -286 -206 -118 -210 C 86 -214 260 -120 296 16 C 324 136 256 252 120 274 C -34 298 -164 196 -190 66 C -204 -8 -146 -36 0 0");
+        }
+
+        .brand-stage--hero {
+            --plane-size: clamp(104px, 11vw, 138px);
+            --word-offset: calc(var(--plane-size) * 0.805);
+            --agency-gap: 8px;
+            --flight-duration: 4.95s;
+            --word-delay: 0.06s;
+            --agency-delay: 0.52s;
+            --pulse-delay: 1.16s;
+            min-height: 760px;
+            padding: 0 28px;
+            background: linear-gradient(180deg, rgba(8, 18, 31, 0.92) 0%, rgba(9, 20, 35, 0.88) 100%);
+            display: grid;
+            place-items: center;
+        }
+
+        .brand-stage--hero .brand-flight {
+            offset-path: path("M -378 4 C -344 -106 -248 -184 -96 -188 C 92 -192 238 -104 270 12 C 294 116 234 216 112 234 C -22 254 -136 170 -160 56 C -172 -10 -122 -32 0 0");
+        }
+
+        .brand-stage--hero .brand-lockup-anchor {
+            animation: brandLockupPulse 0.72s ease-out var(--pulse-delay) both;
+        }
+
+        .intro-stage.brand-stage--hero::before {
+            inset: 0;
+            border-radius: 0;
+            background:
+                radial-gradient(circle at 18% 20%, rgba(124, 171, 212, 0.12), transparent 26%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+            border: 0;
+        }
+
+        .intro-stage.brand-stage--hero::after {
+            display: none;
+        }
+
+        .brand-stage--hero .brand-lockup-anchor,
+        .brand-stage--hero .brand-wording,
+        .brand-stage--hero .brand-agency {
+            animation-play-state: paused;
+        }
+
+        .brand-stage--hero .brand-flight,
+        .brand-stage--hero .brand-flight-rotator {
+            animation-play-state: paused;
+        }
+
+        body.hero-flight-ready .brand-stage--hero .brand-flight,
+        body.hero-flight-ready .brand-stage--hero .brand-flight-rotator {
+            animation-play-state: running;
+        }
+
+        body.hero-copy-ready .brand-stage--hero .brand-lockup-anchor,
+        body.hero-copy-ready .brand-stage--hero .brand-wording,
+        body.hero-copy-ready .brand-stage--hero .brand-agency {
+            animation-play-state: running;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 400;
+            backdrop-filter: blur(18px);
+            background: rgba(3, 7, 15, 0.78);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 86px;
+            gap: 24px;
+            position: relative;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0;
+            text-decoration: none;
+            min-width: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+        }
+
+        body.header-brand-visible .brand {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .brand img {
+            width: 220px;
+            height: auto;
+            max-width: 100%;
+        }
+
+        .brand-copy {
+            display: none;
+        }
+
+        .brand-copy strong {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.03em;
+            font-size: 1rem;
+        }
+
+        .brand-copy span {
+            color: var(--muted);
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 0.96rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--accent);
+        }
+
+        .nav-cta,
+        .primary-button,
+        .secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .nav-cta,
+        .primary-button {
+            padding: 14px 22px;
+            background: linear-gradient(180deg, #ffffff 0%, #dce6f7 100%);
+            color: #040913;
+            box-shadow: 0 18px 40px rgba(255, 255, 255, 0.14);
+        }
+
+        .secondary-button {
+            padding: 14px 22px;
+            border: 1px solid var(--line-strong);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text);
+        }
+
+        .nav-cta:hover,
+        .primary-button:hover,
+        .secondary-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.025);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            margin: 4px auto;
+            background: currentColor;
+        }
+
+        .hero {
+            padding: 0;
+            min-height: 92vh;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            align-items: stretch;
+            justify-items: center;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+        }
+
+        .hero-block {
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(360px, 0.98fr) minmax(0, 1.02fr);
+            border-radius: 0;
+            overflow: hidden;
+            background: linear-gradient(90deg, #0b1522 0%, #0d1827 49%, #05080d 49%, #0a1018 100%);
+            box-shadow: none;
+            min-height: 92vh;
+        }
+
+        .hero-copy {
+            display: grid;
+            gap: 0;
+            align-content: center;
+            padding: 56px 56px 56px 40px;
+            position: relative;
+            text-align: left;
+            background: linear-gradient(180deg, #05080d 0%, #0a1018 100%);
+            color: var(--text);
+        }
+
+        .hero-copy::before {
+            display: none;
+        }
+
+        .hero-intro {
+            display: none;
+        }
+
+        .hero-copy h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.4rem, 7vw, 6.8rem);
+            line-height: 0.9;
+            letter-spacing: -0.025em;
+            font-weight: 600;
+            max-width: 8ch;
+            margin-top: 0;
+            color: var(--text);
+        }
+
+        .hero-copy h1 .gold-accent {
+            background: linear-gradient(180deg, var(--gold-soft) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-copy p {
+            display: none;
+        }
+
+        .hero-actions,
+        .hero-metrics,
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: flex-start;
+        }
+
+        .hero-actions,
+        .hero-metrics {
+            display: none;
+        }
+
+        .metric-chip {
+            padding: 14px 18px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            min-width: 160px;
+        }
+
+        .metric-chip strong {
+            display: block;
+            font-size: 1.3rem;
+            color: var(--gold-soft);
+        }
+
+        .metric-chip span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .intro-stage {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-logo-wrap {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 100%;
+            z-index: 1;
+        }
+
+        .intro-logo-panel {
+            position: relative;
+            width: min(72%, 440px);
+            padding: 24px 26px;
+            border-radius: 36px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+                rgba(7, 18, 30, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 26px 54px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(10px);
+        }
+
+        .intro-logo-panel img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.38));
+        }
+
+        .intro-caption {
+            display: none;
+        }
+
+        .intro-caption strong {
+            color: #ffffff;
+            font-size: 1rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .intro-caption p {
+            max-width: 52ch;
+            color: rgba(255, 255, 255, 0.86);
+            line-height: 1.8;
+        }
+
+        .trust-bar {
+            padding: 24px 0 10px;
+        }
+
+        .trust-grid,
+        .services-grid,
+        .process-grid,
+        .work-grid,
+        .portfolio-grid,
+        .pricing-grid,
+        .testimonials-grid,
+        .field-grid,
+        .checkbox-grid,
+        .contact-layout,
+        .calculator-layout,
+        .about-wrap,
+        .about-points {
+            display: grid;
+            gap: 16px;
+        }
+
+        .trust-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .trust-card,
+        .service-card,
+        .work-card,
+        .portfolio-card,
+        .price-card,
+        .testimonial,
+        .faq-item,
+        .contact-card,
+        .process-card,
+        .calc-card,
+        .about-card,
+        .quote-box {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+        }
+
+        .trust-card,
+        .service-card,
+        .work-card,
+        .process-card,
+        .about-card,
+        .testimonial,
+        .contact-card,
+        .calc-card,
+        .price-card {
+            padding: 24px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .trust-card strong {
+            font-size: 1.95rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .trust-card p,
+        .service-card p,
+        .work-card p,
+        .process-card p,
+        .about-card p,
+        .portfolio-copy p,
+        .testimonial p,
+        .contact-card p,
+        .faq-answer,
+        .calc-note,
+        .calc-list li,
+        .price-list li,
+        .contact-list li {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .services-grid,
+        .work-grid,
+        .portfolio-grid,
+        .pricing-grid,
+        .testimonials-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .process-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .service-card,
+        .price-card,
+        .calc-card,
+        .contact-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before,
+        .price-card.featured::before,
+        .contact-card::before,
+        .calc-card::before {
+            content: "";
+            position: absolute;
+            inset: auto auto -30% -10%;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.045) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .service-icon,
+        .process-index {
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--gold-line);
+            background: rgba(214, 179, 106, 0.08);
+            color: var(--gold-soft);
+            font-size: 1.4rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .service-card h3,
+        .work-card h3,
+        .price-card h3,
+        .testimonial strong,
+        .contact-card h3,
+        .process-card h3,
+        .about-card h3,
+        .calc-result h3,
+        .portfolio-copy h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.38rem;
+            line-height: 1.15;
+        }
+
+        .service-tags,
+        .portfolio-meta,
+        .price-list,
+        .calc-list,
+        .contact-list {
+            list-style: none;
+        }
+
+        .service-tags,
+        .portfolio-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .service-tags li,
+        .portfolio-meta span,
+        .portfolio-badge,
+        .work-card span,
+        .price-note,
+        .testimonial-role,
+        .contact-list li span,
+        .calc-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 12px;
+            border-radius: 999px;
+            background: rgba(214, 179, 106, 0.08);
+            border: 1px solid var(--gold-line);
+            color: var(--gold-soft);
+            font-size: 0.84rem;
+        }
+
+        .about-wrap,
+        .calculator-layout,
+        .contact-layout {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            align-items: stretch;
+        }
+
+        .about-visual {
+            min-height: 560px;
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .about-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.48) saturate(0.75);
+        }
+
+        .about-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(4, 9, 19, 0.26) 0%, rgba(4, 9, 19, 0.84) 100%);
+        }
+
+        .quote-box {
+            position: absolute;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+            padding: 24px;
+            z-index: 1;
+        }
+
+        .quote-box p {
+            color: var(--muted-strong);
+            font-size: 1.04rem;
+        }
+
+        .quote-box strong {
+            display: block;
+            margin-top: 14px;
+            color: var(--text);
+        }
+
+        .about-stack {
+            display: grid;
+            gap: 22px;
+        }
+
+        .about-points {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .about-points div {
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .about-points strong {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .realization-slider {
+            position: relative;
+            padding: 18px;
+            background: transparent;
+            border: 0;
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .realization-slider-head {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 18px;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .realization-slider-head h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .realization-slider-head p,
+        .realization-counter {
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .realization-counter {
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-size: 0.84rem;
+        }
+
+        .realization-viewport {
+            overflow: hidden;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            position: relative;
+        }
+
+        .realization-track {
+            display: flex;
+            transition: transform 0.45s ease;
+            will-change: transform;
+        }
+
+        .realization-slide {
+            min-width: 100%;
+            display: grid;
+            gap: 0;
+        }
+
+        .realization-slide-visual {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(10, 20, 34, 0.72), rgba(6, 12, 22, 0.92));
+        }
+
+        .realization-slide-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.88) saturate(0.98);
+        }
+
+        .realization-nav {
+            position: absolute;
+            inset: 50% 18px auto 18px;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .realization-arrow {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.25s ease, background 0.25s ease;
+            pointer-events: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .realization-arrow:hover,
+        .realization-arrow:focus-visible {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .work-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .portfolio-card {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            aspect-ratio: 0.98;
+            object-fit: cover;
+            filter: brightness(0.55) saturate(0.78);
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(4, 9, 19, 0.08) 0%, rgba(4, 9, 19, 0.38) 100%);
+            pointer-events: none;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-copy {
+            padding: 22px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .price-card.featured {
+            transform: translateY(-14px);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .price-kicker {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .price-tag,
+        .calc-total {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.1rem, 5vw, 4rem);
+            line-height: 1;
+        }
+
+        .price-list,
+        .calc-list,
+        .contact-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .price-card-actions {
+            display: grid;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .price-card-actions .primary-button,
+        .price-card-actions .secondary-button {
+            width: 100%;
+        }
+
+        .phone-hover-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-hover-button .phone-label,
+        .phone-hover-button .phone-number {
+            display: block;
+            transition: transform 0.22s ease, opacity 0.22s ease;
+        }
+
+        .phone-hover-button .phone-number {
+            position: absolute;
+            inset: 50% 22px auto 22px;
+            transform: translateY(calc(-50% + 14px));
+            opacity: 0;
+        }
+
+        .phone-hover-button:hover .phone-label,
+        .phone-hover-button:focus-visible .phone-label {
+            transform: translateY(-14px);
+            opacity: 0;
+        }
+
+        .phone-hover-button:hover .phone-number,
+        .phone-hover-button:focus-visible .phone-number {
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+
+        .price-list li,
+        .calc-list li,
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .price-list li::before,
+        .calc-list li::before,
+        .contact-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .field-grid,
+        .checkbox-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .calc-form,
+        .contact-form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .field {
+            display: grid;
+            gap: 10px;
+        }
+
+        .field label {
+            color: var(--muted-strong);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 16px 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.025);
+            color: var(--text);
+            font: inherit;
+        }
+
+        .field select option {
+            background: #08111d;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.24);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+        }
+
+        .check {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+        }
+
+        .check input {
+            width: 18px;
+            height: 18px;
+            accent-color: #ffffff;
+        }
+
+        .range-wrap {
+            display: grid;
+            gap: 12px;
+        }
+
+        .range-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted-strong);
+            font-weight: 700;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: #ffffff;
+        }
+
+        .calc-result {
+            display: grid;
+            gap: 16px;
+            padding: 28px;
+            border-radius: 24px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+                rgba(7, 17, 31, 0.84);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .calc-summary {
+            display: grid;
+            gap: 10px;
+            color: var(--muted);
+        }
+
+        .stars {
+            letter-spacing: 0.18em;
+            color: var(--gold);
+            text-shadow: 0 0 12px rgba(214, 179, 106, 0.12);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 900px;
+        }
+
+        .faq-item {
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 22px;
+            background: transparent;
+            border: 0;
+            color: var(--text);
+            cursor: pointer;
+            font: inherit;
+            text-align: left;
+        }
+
+        .faq-question strong {
+            font-size: 1.05rem;
+        }
+
+        .faq-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            flex: 0 0 auto;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 26px;
+            transition: max-height 0.25s ease, padding-bottom 0.25s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 220px;
+            padding-bottom: 24px;
+        }
+
+        .submit {
+            padding: 16px 22px;
+            border-radius: 16px;
+            border: 0;
+            background: linear-gradient(180deg, #ffffff 0%, #dce6f7 100%);
+            color: #040913;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 24px 0 34px;
+            color: var(--muted);
+        }
+
+        .footer-shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-shell strong {
+            color: var(--text);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes brandFlight {
+            0% { offset-distance: 0%; opacity: 0; }
+            6% { opacity: 1; }
+            22% { offset-distance: 20%; opacity: 1; }
+            40% { offset-distance: 40%; opacity: 1; }
+            58% { offset-distance: 58%; opacity: 1; }
+            76% { offset-distance: 76%; opacity: 1; }
+            90% { offset-distance: 90%; opacity: 1; }
+            100% { offset-distance: 100%; opacity: 1; }
+        }
+
+        @keyframes brandBank {
+            0% { transform: rotate(0deg) scale(0.96); }
+            14% { transform: rotate(28deg) scale(0.99); }
+            30% { transform: rotate(64deg) scale(1.01); }
+            46% { transform: rotate(108deg) scale(1.015); }
+            62% { transform: rotate(192deg) scale(1.015); }
+            78% { transform: rotate(278deg) scale(1.01); }
+            90% { transform: rotate(332deg) scale(1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes brandWordReveal {
+            0% { opacity: 0; transform: translateX(18px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes brandAgencyReveal {
+            0% { opacity: 0; transform: translateY(24px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes brandLockupPulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            65% { transform: translate(-50%, -50%) scale(1.065); }
+            100% { transform: translate(-50%, -50%) scale(1.055); }
+        }
+
+        @media (max-width: 1160px) {
+            .hero-layout,
+            .about-wrap,
+            .calculator-layout,
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-block {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-copy {
+                padding: 36px 34px 42px;
+                text-align: center;
+                justify-items: center;
+            }
+
+            .trust-grid,
+            .services-grid,
+            .work-grid,
+            .portfolio-grid,
+            .pricing-grid,
+            .testimonials-grid,
+            .process-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .intro-stage {
+                min-height: 330px;
+            }
+
+            .brand-stage--hero {
+                min-height: 330px;
+            }
+
+            .preloader-mark {
+                width: min(94vw, 760px);
+                height: min(88vw, 470px);
+            }
+
+            .brand-stage--preloader {
+                --plane-size: 96px;
+                --word-offset: calc(var(--plane-size) * 0.805);
+                --dock-x: 47.4%;
+                --dock-y: 47%;
+            }
+
+            .brand-stage--hero {
+                --plane-size: 92px;
+                --word-offset: calc(var(--plane-size) * 0.805);
+                --word-delay: 0.06s;
+                --agency-delay: 0.48s;
+                --pulse-delay: 1.08s;
+                min-height: 540px;
+            }
+
+            .price-card.featured {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 880px) {
+            .menu-toggle {
+                display: inline-block;
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .nav-links.is-open {
+                position: absolute;
+                top: calc(100% + 14px);
+                left: 20px;
+                right: 20px;
+                display: grid;
+                gap: 16px;
+                padding: 22px;
+                border-radius: 22px;
+                background: rgba(4, 9, 19, 0.98);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: var(--shadow);
+            }
+
+            .trust-grid,
+            .services-grid,
+            .work-grid,
+            .portfolio-grid,
+            .pricing-grid,
+            .testimonials-grid,
+            .process-grid,
+            .field-grid,
+            .checkbox-grid,
+            .about-points {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-copy {
+                display: none;
+            }
+
+            .hero-copy {
+                padding: 32px 28px 42px;
+            }
+
+            .intro-stage {
+                min-height: 420px;
+                padding: 36px 20px 30px;
+            }
+
+            .intro-logo-panel {
+                width: min(82%, 410px);
+            }
+
+            .footer-shell {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .realization-slider {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .container {
+                width: min(var(--container), calc(100% - 28px));
+            }
+
+            .section-shell {
+                padding: 68px 0;
+            }
+
+            .nav-wrap {
+                min-height: 76px;
+            }
+
+            .brand img {
+                width: 168px;
+            }
+
+            .primary-button,
+            .secondary-button,
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-actions,
+            .hero-metrics,
+            .contact-actions {
+                flex-direction: column;
+            }
+
+            .hero-copy {
+                padding: 22px 18px 28px;
+            }
+
+            .intro-stage {
+                min-height: 360px;
+                padding: 28px 16px 24px;
+            }
+
+            .intro-stage.brand-stage--hero::before {
+                inset: 0;
+            }
+
+            .preloader-mark {
+                height: min(108vw, 390px);
+            }
+
+            .brand-stage--preloader {
+                --plane-size: 82px;
+                --word-offset: calc(var(--plane-size) * 0.805);
+                --dock-x: 47%;
+                --dock-y: 46.8%;
+            }
+
+            .brand-stage--hero {
+                --plane-size: 78px;
+                --word-offset: calc(var(--plane-size) * 0.805);
+                --word-delay: 0.06s;
+                --agency-delay: 0.42s;
+                --pulse-delay: 0.98s;
+                min-height: 400px;
+            }
+
+            .brand-agency {
+                font-size: 0.82rem;
+                letter-spacing: 0.3em;
+            }
+
+            .realization-nav {
+                inset: auto 12px 12px 12px;
+                transform: none;
+            }
+
+            .intro-logo-panel {
+                width: min(92%, 360px);
+                padding: 18px 18px;
+            }
+        }
+
+    </style>
+</head>
+<body class="hero-flight-ready hero-copy-ready">
+
+    <header>
+        <div class="container nav-wrap">
+            <a href="#start" class="brand" aria-label="Jetsites Agency">
+                <img src="logo-transparent.png" alt="Jetsites">
+                <span class="brand-copy">
+                    <strong>Premium Web Agency</strong>
+                    <span>Design • Development • Growth</span>
+                </span>
+            </a>
+
+            <nav aria-label="Glowna nawigacja">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#oferta">Oferta</a></li>
+                    <li><a href="#proces">Proces</a></li>
+                    <li><a href="#realizacje">Realizacje</a></li>
+                    <li><a href="#cennik">Cennik</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <a href="#kontakt" class="nav-cta">Skontaktuj sie z nami</a>
+
+            <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Otworz menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="start">
+            <div class="container hero-layout">
+                <div class="hero-block reveal">
+                    <div class="intro-stage brand-stage brand-stage--hero" aria-label="Animowany blok wizualny Jetsites">
+                        <div class="brand-lockup-anchor" aria-hidden="true">
+                            <div class="brand-flight">
+                                <div class="brand-flight-rotator">
+                                    <div class="brand-plane"><img src="plane-mark.png" alt=""></div>
+                                </div>
+                            </div>
+                            <div class="brand-wording">
+                                <img src="jetsites-wordmark.png" alt="Jetsites" class="brand-wordmark">
+                                <div class="brand-agency">agency</div>
+                            </div>
+                        </div>
+                        <div class="intro-caption">
+                            <strong>Animated brand block</strong>
+                            <p>Jesli dodasz pozniej film, mozemy w tym miejscu podmienic animacje na video bez przebudowy calego hero.</p>
+                        </div>
+                    </div>
+
+                    <div class="hero-copy">
+                        <h1>Budujemy <span class="gold-accent">wizerunek online</span>, ktory od razu przyciaga uwage.</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell light-surface" id="oferta">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Oferta</span>
+                    <h2>Tworzymy strony internetowe dla firm, ktore chca wygladac powaznie i skutecznie sprzedawac.</h2>
+                    <p>Kazdy projekt dopasowujemy do etapu rozwoju marki. Mozesz zamowic szybki landing, kompletna strone firmowa albo rozbudowany sklep z procesem zakupowym i automatyzacjami.</p>
+                </div>
+
+                <div class="services-grid">
+                    <article class="service-card reveal">
+                        <div class="service-icon">01</div>
+                        <h3>Strony firmowe i premium wizytowki</h3>
+                        <p>Nowoczesne strony dla firm uslugowych, ekspertow i marek lokalnych. Ukladamy tresci tak, by klient od razu rozumial oferte i wiedzial, co ma zrobic dalej.</p>
+                        <ul class="service-tags">
+                            <li>Oferta</li>
+                            <li>Formularze</li>
+                            <li>SEO podstawowe</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <div class="service-icon">02</div>
+                        <h3>Landing page'e kampanijne</h3>
+                        <p>Strony pod reklamy, nowe uslugi i produkty. Mocny naglowek, czytelna struktura, sekcje zaufania i szybka droga do kontaktu lub zakupu.</p>
+                        <ul class="service-tags">
+                            <li>Leady</li>
+                            <li>Meta Ads</li>
+                            <li>Google Ads</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <div class="service-icon">03</div>
+                        <h3>Sklepy online i strony sprzedazowe</h3>
+                        <p>Projektujemy e-commerce z mysla o prostym zakupie, wygodnej administracji i skalowaniu sprzedazy. Integrujemy platnosci, kurierow i analityke.</p>
+                        <ul class="service-tags">
+                            <li>Sklep</li>
+                            <li>Platnosci</li>
+                            <li>Analityka</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell" id="proces">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Proces</span>
+                    <h2>Pracujemy szybko, ale nie na skroty.</h2>
+                    <p>Dobra strona nie zaczyna sie od przypadkowego ukladu. Zaczyna sie od decyzji, co klient ma zobaczyc, poczuc i kliknac. Dlatego proces Jetsites jest prosty i uporzadkowany.</p>
+                </div>
+
+                <div class="process-grid">
+                    <article class="process-card reveal">
+                        <div class="process-index">01</div>
+                        <h3>Analiza i demo w 24 godziny</h3>
+                        <p>Po kontakcie analizujemy Twoja firme i przygotowujemy demo wersji strony w ciagu 24 godzin, zebys od razu widzial kierunek projektu.</p>
+                    </article>
+                    <article class="process-card reveal">
+                        <div class="process-index">02</div>
+                        <h3>Feedback i wlasciwy content</h3>
+                        <p>Po informacji zwrotnej od klienta wprowadzamy zmiany oraz dodajemy wlasciwy content, zdjecia i opisy, ktore klient chce miec na stronie.</p>
+                    </article>
+                    <article class="process-card reveal">
+                        <div class="process-index">03</div>
+                        <h3>Poprawki, final i platnosc</h3>
+                        <p>Dopracowujemy dodatkowe poprawki, konczymy strone do finalnej wersji i zamykamy etap realizacji wraz z platnoscia.</p>
+                    </article>
+                    <article class="process-card reveal">
+                        <div class="process-index">04</div>
+                        <h3>Ciesz sie gotowa strona</h3>
+                        <p>Otrzymujesz gotowa, wymarzona strone i mozesz od razu pokazac ja klientom oraz zaczac dzialac online na powaznie.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell">
+            <div class="container realization-showcase">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Nasze realizacje</span>
+                    <h2>Prosty slider realizacji do przewijania zdjec.</h2>
+                    <p>To jest juz uproszczona wersja. Masz tylko duze zdjecia i strzalki po bokach, bez dodatkowych wyborow i bez zbednych przyciskow.</p>
+                </div>
+
+                <article class="realization-slider reveal">
+                    <div class="realization-slider-head">
+                        <h3 id="realizationSliderTitle">Mario Bramy</h3>
+                        <div class="realization-counter" id="realizationCounter">01 / 03</div>
+                    </div>
+
+                    <div class="realization-viewport">
+                        <div class="realization-track" id="realizationTrack">
+                            <article class="realization-slide" data-title="Mario Bramy">
+                                <div class="realization-slide-visual">
+                                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80" alt="Podglad realizacji Mario Bramy">
+                                </div>
+                            </article>
+
+                            <article class="realization-slide" data-title="Realizacja 02">
+                                <div class="realization-slide-visual">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80" alt="Miejsce na druga realizacje">
+                                </div>
+                            </article>
+
+                            <article class="realization-slide" data-title="Realizacja 03">
+                                <div class="realization-slide-visual">
+                                    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80" alt="Miejsce na trzecia realizacje">
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="realization-nav">
+                            <button type="button" class="realization-arrow" id="realizationPrev" aria-label="Poprzednie zdjecie">&#8592;</button>
+                            <button type="button" class="realization-arrow" id="realizationNext" aria-label="Nastepne zdjecie">&#8594;</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-shell light-surface" id="cennik">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Cennik</span>
+                    <h2>Przejrzyste pakiety dla roznych etapow rozwoju firmy.</h2>
+                    <p>Ceny startowe pozwalaja szybko oszacowac budzet. Finalna wycena zalezy od zakresu, liczby sekcji, materialow i poziomu indywidualizacji projektu.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <article class="price-card reveal">
+                        <div class="price-kicker">
+                            <span class="price-note">Starter</span>
+                        </div>
+                        <h3>Strona wizytowka</h3>
+                        <p>Dla firm, ktore potrzebuja prostej, profesjonalnej strony na start z podstawowym wsparciem SEO i mozliwoscia szybkiego dopracowania detali.</p>
+                        <div class="price-tag">od 2 100 zl</div>
+                        <ul class="price-list">
+                            <li>do 5 sekcji lub podstron</li>
+                            <li>3 darmowe poprawki w cenie</li>
+                            <li>SEO i pozycjonowanie w cenie</li>
+                            <li>kazda dodatkowa poprawka: 100 zl</li>
+                        </ul>
+                        <div class="price-card-actions">
+                            <a href="tel:+48884213935" class="primary-button phone-hover-button" aria-label="Zadzwon 884 213 935">
+                                <span class="phone-label">Zadzwon</span>
+                                <span class="phone-number">884 - 213 - 935</span>
+                            </a>
+                            <a href="#kontakt" class="secondary-button">Napisz do nas</a>
+                        </div>
+                    </article>
+
+                    <article class="price-card featured reveal">
+                        <div class="price-kicker">
+                            <span class="price-note">Najczesciej wybierany</span>
+                        </div>
+                        <h3>Strona rozbudowana</h3>
+                        <p>Dla firm, ktore potrzebuja wiecej funkcji, wygodnej obslugi i mozliwosci samodzielnego zarzadzania trescia po wdrozeniu.</p>
+                        <div class="price-tag">od 3300zl</div>
+                        <ul class="price-list">
+                            <li>prosty panel do edycji tresci, zdjec i opisow</li>
+                            <li>mozliwosc samodzielnej modyfikacji zawartosci strony</li>
+                            <li>dodatkowe funkcje dopasowane do potrzeb firmy</li>
+                        </ul>
+                        <div class="price-card-actions">
+                            <a href="tel:+48884213935" class="primary-button phone-hover-button" aria-label="Zadzwon 884 213 935">
+                                <span class="phone-label">Zadzwon</span>
+                                <span class="phone-number">884 - 213 - 935</span>
+                            </a>
+                            <a href="#kontakt" class="secondary-button">Napisz do nas</a>
+                        </div>
+                    </article>
+
+                    <article class="price-card reveal">
+                        <div class="price-kicker">
+                            <span class="price-note">Scale</span>
+                        </div>
+                        <h3>Sklep lub projekt custom</h3>
+                        <p>Dla marek sprzedajacych online lub potrzebujacych rozbudowanej struktury, integracji i wiekszej liczby ekranow.</p>
+                        <div class="price-tag">od 5000 zl</div>
+                        <ul class="price-list">
+                            <li>sklep online lub rozbudowany serwis</li>
+                            <li>integracje platnosci i wysylek</li>
+                            <li>architektura pod dalszy rozwoj</li>
+                            <li>wieksza liczba ekranow i funkcji custom</li>
+                        </ul>
+                        <div class="price-card-actions">
+                            <a href="tel:+48884213935" class="primary-button phone-hover-button" aria-label="Zadzwon 884 213 935">
+                                <span class="phone-label">Zadzwon</span>
+                                <span class="phone-number">884 - 213 - 935</span>
+                            </a>
+                            <a href="#kontakt" class="secondary-button">Napisz do nas</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Opinie</span>
+                    <h2>Klienci wracaja do nas po kolejne wdrozenia, bo strona ma realnie pomagac biznesowi.</h2>
+                    <p>Projekt nie konczy sie na ladnym wygladzie. Liczy sie czy klient rozumie oferte, czy zostawia kontakt i czy marka wyglada jak partner z wyzszej polki.</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <article class="testimonial reveal">
+                        <div class="stars">★★★★★</div>
+                        <p>Jetsites poukladalo nam cala komunikacje na stronie. Po zmianie wizerunku i formularzy liczba zapytan wyraznie wzrosla juz w pierwszym miesiacu.</p>
+                        <div class="testimonial-foot">
+                            <div class="avatar">AK</div>
+                            <div>
+                                <strong>Alicja Krawiec</strong>
+                                <span class="testimonial-role">marka premium / uslugi</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial reveal">
+                        <div class="stars">★★★★★</div>
+                        <p>Najwieksza roznica? Estetyka i porzadek. Strona zaczela wygladac jak firma, ktora zna swoja wartosc, a nie jak przypadkowa wizytowka z internetu.</p>
+                        <div class="testimonial-foot">
+                            <div class="avatar">MN</div>
+                            <div>
+                                <strong>Michal Nowicki</strong>
+                                <span class="testimonial-role">doradztwo / B2B</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial reveal">
+                        <div class="stars">★★★★★</div>
+                        <p>Swietny kontakt, szybkie poprawki i bardzo mocny final. Dostalismy strone, ktora nadaje sie i pod reklamy, i pod dalsze SEO. Wszystko wyglada bardzo profesjonalnie.</p>
+                        <div class="testimonial-foot">
+                            <div class="avatar">SZ</div>
+                            <div>
+                                <strong>Sebastian Zadrozny</strong>
+                                <span class="testimonial-role">e-commerce / retail</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">FAQ</span>
+                    <h2>Najczesciej zadawane pytania przed startem projektu.</h2>
+                    <p>Jesli czegos tu brakuje, po prostu napisz. Odpowiemy konkretnie i bez agencyjnego lania wody.</p>
+                </div>
+
+                <div class="faq-grid">
+                    <article class="faq-item reveal active">
+                        <button class="faq-question" type="button">
+                            <strong>Ile trwa stworzenie strony internetowej?</strong>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">Prosta strona wizytowka moze powstac w 7-10 dni roboczych. Rozbudowana strona biznesowa najczesciej potrzebuje 2-4 tygodni, a sklep lub projekt custom odpowiednio dluzej.</div>
+                    </article>
+
+                    <article class="faq-item reveal">
+                        <button class="faq-question" type="button">
+                            <strong>Czy moge zlecic sama strone bez gotowych tekstow?</strong>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">Tak. Mozemy przygotowac kierunek komunikacji, naglowki i tresci sprzedazowe albo pomoc uporzadkowac materialy, ktore juz masz.</div>
+                    </article>
+
+                    <article class="faq-item reveal">
+                        <button class="faq-question" type="button">
+                            <strong>Czy strona bedzie dobrze wygladac na telefonie?</strong>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">Tak. Projektujemy mobile-first, dlatego kazdy widok jest dopracowany pod telefony, tablety i duze ekrany. Responsywnosc traktujemy jako standard, nie dodatek.</div>
+                    </article>
+
+                    <article class="faq-item reveal">
+                        <button class="faq-question" type="button">
+                            <strong>Czy oferujecie dalsza opieke po wdrozeniu?</strong>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">Tak. Po starcie mozemy dalej rozwijac strone, dodawac nowe sekcje, landingi, kampanie, a takze prowadzic biezace poprawki i opieke techniczna.</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell light-surface" id="kontakt">
+            <div class="container contact-layout">
+                <article class="contact-card reveal">
+                    <span class="eyebrow">Kontakt</span>
+                    <h3>Masz pomysl na strone? Przejdzmy od razu do konkretow.</h3>
+                    <p>Napisz, co chcesz zbudowac, jaki masz termin i jaki efekt ma dac nowa strona. Wrocimy z propozycja zakresu i orientacyjna wycena.</p>
+                    <ul class="contact-list">
+                        <li>e-mail: <span>hello@jetsites.pl</span></li>
+                        <li>telefon: <span>+48 123 456 789</span></li>
+                        <li>czas odpowiedzi: <span>do 24 godzin</span></li>
+                    </ul>
+                    <div class="contact-actions">
+                        <a href="mailto:hello@jetsites.pl" class="primary-button">Napisz maila</a>
+                        <a href="tel:+48123456789" class="secondary-button">Zadzwon teraz</a>
+                    </div>
+                </article>
+
+                <article class="contact-card reveal">
+                    <form class="contact-form">
+                        <div class="field-grid">
+                            <div class="field">
+                                <label for="name">Imie i firma</label>
+                                <input id="name" name="name" type="text" placeholder="Np. Anna / Studio Modo">
+                            </div>
+                            <div class="field">
+                                <label for="email">Adres e-mail</label>
+                                <input id="email" name="email" type="email" placeholder="twoj@email.pl">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="phone">Numer telefonu</label>
+                            <input id="phone" name="phone" type="tel" placeholder="Np. 884 213 935" required>
+                        </div>
+                        <div class="field">
+                            <label for="budget">Budzet orientacyjny</label>
+                            <select id="budget" name="budget">
+                                <option>Ponizej- 2 000 zl</option>
+                                <option>2000 - 4 000 zl</option>
+                                <option>4000 - 5 000 zl</option>
+                            
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="message">Opisz projekt</label>
+                            <textarea id="message" name="message" placeholder="Napisz, jaka strone chcesz stworzyc, jakie sekcje sa potrzebne i na kiedy chcesz wystartowac."></textarea>
+                        </div>
+                        <button type="button" class="submit">Wyslij zapytanie</button>
+                    </form>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-shell">
+            <div>
+                <strong>Jetsites Agency</strong>
+                <div>Profesjonalne strony internetowe </div>
+            </div>
+            <div>2026 © Jetsites. Design, development i wzrost w jednym miejscu.</div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const heroSection = document.querySelector('.hero');
+        const realizationSlides = [...document.querySelectorAll('.realization-slide')];
+        const realizationTrack = document.getElementById('realizationTrack');
+        const realizationSliderTitle = document.getElementById('realizationSliderTitle');
+        const realizationCounter = document.getElementById('realizationCounter');
+        const realizationPrev = document.getElementById('realizationPrev');
+        const realizationNext = document.getElementById('realizationNext');
+
+        const updateHeaderBrandVisibility = () => {
+            if (!heroSection) {
+                document.body.classList.add('header-brand-visible');
+                return;
+            }
+
+            const revealThreshold = Math.max(180, heroSection.offsetHeight * 0.42);
+            document.body.classList.toggle('header-brand-visible', window.scrollY > revealThreshold);
+        };
+
+        window.addEventListener('scroll', updateHeaderBrandVisibility, { passive: true });
+        window.addEventListener('resize', updateHeaderBrandVisibility);
+        updateHeaderBrandVisibility();
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            document.body.classList.toggle('menu-open', isOpen);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        const updateRealizationSlider = (index) => {
+            if (!realizationSlides.length || !realizationTrack) {
+                return;
+            }
+
+            const safeIndex = (index + realizationSlides.length) % realizationSlides.length;
+            const activeSlide = realizationSlides[safeIndex];
+            const title = activeSlide.dataset.title || 'Realizacja';
+
+            realizationTrack.style.transform = 'translateX(-' + (safeIndex * 100) + '%)';
+            realizationSliderTitle.textContent = title;
+            realizationCounter.textContent = String(safeIndex + 1).padStart(2, '0') + ' / ' + String(realizationSlides.length).padStart(2, '0');
+        };
+
+        if (realizationPrev) {
+            realizationPrev.addEventListener('click', () => {
+                const activeTitle = realizationSliderTitle ? realizationSliderTitle.textContent : '';
+                const activeIndex = realizationSlides.findIndex((slide) => slide.dataset.title === activeTitle);
+                updateRealizationSlider(activeIndex - 1);
+            });
+        }
+
+        if (realizationNext) {
+            realizationNext.addEventListener('click', () => {
+                const activeTitle = realizationSliderTitle ? realizationSliderTitle.textContent : '';
+                const activeIndex = realizationSlides.findIndex((slide) => slide.dataset.title === activeTitle);
+                updateRealizationSlider(activeIndex + 1);
+            });
+        }
+
+        updateRealizationSlider(0);
+
+        document.querySelectorAll('.faq-item').forEach((item) => {
+            const trigger = item.querySelector('.faq-question');
+            trigger.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach((entry) => entry.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    </script>
+</body>
+</html>
