@@ -36,10 +36,11 @@
                     <li><a href="#realizacje">Realizacje</a></li>
                     <li><a href="#cennik">Cennik</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
-                    <li class="mobile-menu-extras hidden max-[880px]:flex flex-col items-center gap-6 mt-8 w-full px-6 opacity-0 translate-y-4">
+                    <li
+                        class="mobile-menu-extras hidden max-[880px]:flex flex-col items-center gap-6 mt-8 w-full px-6 opacity-0 translate-y-4">
                         <a href="#kontakt" class="nav-cta w-full text-center justify-center">Skontaktuj sie z nami</a>
                         <div class="text-[var(--muted)] text-sm font-medium tracking-wider uppercase mt-4">
-                            hello@jetsites.pl
+                            kontakt.jetsites@gmail.com
                         </div>
                     </li>
                 </ul>
@@ -58,6 +59,11 @@
 
     <main>
         <section class="hero" id="start">
+            <div class="ambient-elements" aria-hidden="true">
+                <div class="ambient-element ambient-orb" data-speed="0.05"></div>
+                <div class="ambient-element ambient-ring" data-speed="-0.03"></div>
+                <div class="ambient-element ambient-plus" data-speed="0.08"></div>
+            </div>
             <div class="hero-layout">
                 <div class="hero-block reveal">
                     <div class="intro-stage brand-stage brand-stage--hero"
@@ -81,7 +87,15 @@
                     </div>
 
                     <div class="hero-copy">
-                        <h1>Budujemy <span class="gold-accent">wizerunek online</span>, ktory od razu przyciaga uwage.
+                        <h1 aria-label="Budujemy wizerunek online, ktory od razu przyciaga uwage.">
+                            <span class="word-mask"><span class="word" style="--word-index: 1;">Budujemy</span></span>
+                            <span class="word-mask"><span class="word gold-accent" style="--word-index: 2;">wizerunek</span></span>
+                            <span class="word-mask"><span class="word gold-accent" style="--word-index: 3;">online,</span></span>
+                            <span class="word-mask"><span class="word" style="--word-index: 4;">ktory</span></span>
+                            <span class="word-mask"><span class="word" style="--word-index: 5;">od</span></span>
+                            <span class="word-mask"><span class="word" style="--word-index: 6;">razu</span></span>
+                            <span class="word-mask"><span class="word" style="--word-index: 7;">przyciaga</span></span>
+                            <span class="word-mask"><span class="word" style="--word-index: 8;">uwage.</span></span>
                         </h1>
                     </div>
                 </div>

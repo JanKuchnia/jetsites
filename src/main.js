@@ -90,4 +90,56 @@
         }, { threshold: 0.12 });
 
         document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-    
+
+        // Parallax Ambient Elements Logic
+        const ambientElements = document.querySelectorAll('.ambient-element');
+        if (ambientElements.length > 0 && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                // Only animate if hero is in view
+                if (scrolled < window.innerHeight) {
+                    ambientElements.forEach(el => {
+                        const speed = el.getAttribute('data-speed');
+                        if (speed) {
+                            const yPos = -(scrolled * parseFloat(speed));
+                            // Use transform, but don't overwrite the CSS animation
+                            // Actually, CSS animation applies to transform, so we should wrap the element
+                            // OR we can just apply a CSS variable that the transform uses, but for now we'll translate it.
+                            // CSS animations will override inline transforms unless we wrap it or use a variable.
+                            el.style.setProperty('--scroll-y', `${yPos}px`);
+                        }
+                    });
+                }
+            }, { passive: true });
+        }
+
+        // 3D Card Hover & Glowing Border Logic
+        if (window.matchMedia("(pointer: fine)").matches) {
+            const cards = document.querySelectorAll('.service-card, .price-card, .work-card, .process-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // Update CSS variables for the glowing border position
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+
+                    // Calculate 3D tilt
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    // Max rotation of 4 degrees
+                    const rotateX = ((y - centerY) / centerY) * -4;
+                    const rotateY = ((x - centerX) / centerX) * 4;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                });
+            });
+        }
