@@ -475,8 +475,17 @@ header {
     top: 0;
     z-index: 400;
     backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     background: rgba(3, 7, 15, 0.78);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+body.menu-open header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: transparent;
+    border-bottom-color: transparent;
 }
 
 .nav-wrap {
@@ -593,6 +602,8 @@ body.header-brand-visible .brand {
     background: rgba(255, 255, 255, 0.025);
     color: var(--text);
     cursor: pointer;
+    position: relative;
+    z-index: 500;
 }
 
 .menu-toggle span {
@@ -601,6 +612,19 @@ body.header-brand-visible .brand {
     height: 2px;
     margin: 4px auto;
     background: currentColor;
+    transition: transform 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+
+body.menu-open .menu-toggle span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+body.menu-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+body.menu-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
 }
 
 .hero {
@@ -1604,17 +1628,53 @@ footer {
     }
 
     .nav-links.is-open {
-        position: absolute;
-        top: calc(100% + 14px);
-        left: 20px;
-        right: 20px;
-        display: grid;
-        gap: 16px;
-        padding: 22px;
-        border-radius: 22px;
-        background: rgba(4, 9, 19, 0.98);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: var(--shadow);
+        position: fixed;
+        inset: 0;
+        z-index: 390;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        background: rgba(3, 7, 15, 0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 100px 20px 40px;
+        opacity: 0;
+        animation: menuFadeIn 0.3s forwards ease-out;
+    }
+
+    .nav-links.is-open li {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: menuItemFadeUp 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-links.is-open li:nth-child(1) { animation-delay: 0.05s; }
+    .nav-links.is-open li:nth-child(2) { animation-delay: 0.1s; }
+    .nav-links.is-open li:nth-child(3) { animation-delay: 0.15s; }
+    .nav-links.is-open li:nth-child(4) { animation-delay: 0.2s; }
+    .nav-links.is-open li:nth-child(5) { animation-delay: 0.25s; }
+    .nav-links.is-open li:nth-child(6) { animation-delay: 0.3s; }
+
+    .nav-links.is-open a {
+        font-size: 2rem;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+    }
+
+    .nav-links.is-open .mobile-menu-extras a {
+        font-size: 1.1rem;
+    }
+
+    @keyframes menuFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes menuItemFadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     .trust-grid,
