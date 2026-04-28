@@ -161,3 +161,7 @@
                 });
             });
         }
+// Initialize Lucide icons if loaded
+if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+}

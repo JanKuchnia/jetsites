@@ -15,6 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./src/styles.css">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body class="hero-flight-ready hero-copy-ready">
@@ -31,11 +32,11 @@
 
             <nav aria-label="Glowna nawigacja">
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#oferta">Oferta</a></li>
-                    <li><a href="#proces">Proces</a></li>
-                    <li><a href="#realizacje">Realizacje</a></li>
-                    <li><a href="#cennik">Cennik</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="#oferta" class="flex items-center gap-2"><i data-lucide="layout-grid" class="w-4 h-4"></i>Oferta</a></li>
+                    <li><a href="#proces" class="flex items-center gap-2"><i data-lucide="git-commit-horizontal" class="w-4 h-4"></i>Proces</a></li>
+                    <li><a href="#realizacje" class="flex items-center gap-2"><i data-lucide="folder-check" class="w-4 h-4"></i>Realizacje</a></li>
+                    <li><a href="#cennik" class="flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4"></i>Cennik</a></li>
+                    <li><a href="#kontakt" class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>Kontakt</a></li>
                     <li
                         class="mobile-menu-extras hidden max-[880px]:flex flex-col items-center gap-6 mt-8 w-full px-6 opacity-0 translate-y-4">
                         <a href="#kontakt" class="nav-cta w-full text-center justify-center">Skontaktuj sie z nami</a>
@@ -160,31 +161,64 @@
                         zobaczyc, poczuc i kliknac. Dlatego proces Jetsites jest prosty i uporzadkowany.</p>
                 </div>
 
-                <div class="process-grid">
-                    <article class="process-card reveal">
-                        <div class="process-index">01</div>
-                        <h3>Analiza i demo w 24 godziny</h3>
-                        <p>Po kontakcie analizujemy Twoja firme i przygotowujemy demo wersji strony w ciagu 24 godzin,
-                            zebys od razu widzial kierunek projektu.</p>
-                    </article>
-                    <article class="process-card reveal">
-                        <div class="process-index">02</div>
-                        <h3>Feedback i wlasciwy content</h3>
-                        <p>Po informacji zwrotnej od klienta wprowadzamy zmiany oraz dodajemy wlasciwy content, zdjecia
-                            i opisy, ktore klient chce miec na stronie.</p>
-                    </article>
-                    <article class="process-card reveal">
-                        <div class="process-index">03</div>
-                        <h3>Poprawki, final i platnosc</h3>
-                        <p>Dopracowujemy dodatkowe poprawki, konczymy strone do finalnej wersji i zamykamy etap
-                            realizacji wraz z platnoscia.</p>
-                    </article>
-                    <article class="process-card reveal">
-                        <div class="process-index">04</div>
-                        <h3>Ciesz sie gotowa strona</h3>
-                        <p>Otrzymujesz gotowa, wymarzona strone i mozesz od razu pokazac ja klientom oraz zaczac dzialac
-                            online na powaznie.</p>
-                    </article>
+                <div class="process-timeline">
+                    <div class="process-timeline-track" aria-hidden="true"></div>
+
+                    <div class="process-step reveal">
+                        <div class="process-step-head">
+                            <div class="process-step-icon">
+                                <i data-lucide="search" class="w-6 h-6"></i>
+                            </div>
+                            <div class="process-step-num">01</div>
+                        </div>
+                        <div class="process-step-body">
+                            <h3>Analiza i demo</h3>
+                            <p>Po kontakcie analizujemy Twoja firme i przygotowujemy demo wersji strony w ciagu 24 godzin, zebys od razu widzial kierunek projektu.</p>
+                            <span class="process-step-badge"><i data-lucide="clock" class="w-3 h-3"></i> 24 godziny</span>
+                        </div>
+                    </div>
+
+                    <div class="process-step reveal">
+                        <div class="process-step-head">
+                            <div class="process-step-icon">
+                                <i data-lucide="message-square-more" class="w-6 h-6"></i>
+                            </div>
+                            <div class="process-step-num">02</div>
+                        </div>
+                        <div class="process-step-body">
+                            <h3>Feedback i content</h3>
+                            <p>Po informacji zwrotnej od klienta wprowadzamy zmiany oraz dodajemy wlasciwy content, zdjecia i opisy, ktore klient chce miec na stronie.</p>
+                            <span class="process-step-badge"><i data-lucide="pencil" class="w-3 h-3"></i> Szybkie poprawki</span>
+                        </div>
+                    </div>
+
+                    <div class="process-step reveal">
+                        <div class="process-step-head">
+                            <div class="process-step-icon">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <div class="process-step-num">03</div>
+                        </div>
+                        <div class="process-step-body">
+                            <h3>Final i platnosc</h3>
+                            <p>Dopracowujemy dodatkowe poprawki, konczymy strone do finalnej wersji i zamykamy etap realizacji wraz z platnoscia.</p>
+                            <span class="process-step-badge"><i data-lucide="shield-check" class="w-3 h-3"></i> Gwarancja jakosci</span>
+                        </div>
+                    </div>
+
+                    <div class="process-step reveal">
+                        <div class="process-step-head">
+                            <div class="process-step-icon">
+                                <i data-lucide="rocket" class="w-6 h-6"></i>
+                            </div>
+                            <div class="process-step-num">04</div>
+                        </div>
+                        <div class="process-step-body">
+                            <h3>Start online</h3>
+                            <p>Otrzymujesz gotowa, wymarzona strone i mozesz od razu pokazac ja klientom oraz zaczac dzialac online na powaznie.</p>
+                            <span class="process-step-badge process-step-badge--gold"><i data-lucide="sparkles" class="w-3 h-3"></i> Gotowe!</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

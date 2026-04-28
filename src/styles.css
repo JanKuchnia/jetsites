@@ -27,6 +27,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -963,8 +964,192 @@ body.hero-copy-ready .word {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* ── Process Timeline ──────────────────────────── */
 .process-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.process-timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 56px;
+}
+
+.process-timeline-track {
+    position: absolute;
+    top: 36px;
+    left: calc(12.5% + 28px);
+    right: calc(12.5% + 28px);
+    height: 1px;
+    background: linear-gradient(90deg,
+        rgba(214, 179, 106, 0.15),
+        rgba(214, 179, 106, 0.5) 50%,
+        rgba(214, 179, 106, 0.15)
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+.process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.process-step-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.process-step-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 1px solid rgba(214, 179, 106, 0.3);
+    background: rgba(214, 179, 106, 0.06);
+    color: var(--gold-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.process-step-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 1.5;
+}
+
+.process-step-icon::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(214, 179, 106, 0.12), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.process-step:hover .process-step-icon {
+    background: rgba(214, 179, 106, 0.12);
+    border-color: rgba(214, 179, 106, 0.6);
+    transform: translateY(-4px);
+}
+
+.process-step:hover .process-step-icon::before {
+    opacity: 1;
+}
+
+.process-step-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    opacity: 0.7;
+}
+
+.process-step-body h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.process-step-body p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin-bottom: 14px;
+}
+
+.process-step-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--muted);
+}
+
+.process-step-badge svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+.process-step-badge--gold {
+    border-color: rgba(214, 179, 106, 0.35);
+    background: rgba(214, 179, 106, 0.08);
+    color: var(--gold-soft);
+}
+
+@media (max-width: 880px) {
+    .process-timeline {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 16px;
+    }
+
+    .process-timeline-track {
+        display: none;
+    }
+
+    .process-step {
+        background: var(--bg-panel);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-lg);
+        padding: 24px 16px;
+        backdrop-filter: blur(14px);
+    }
+}
+
+@media (max-width: 560px) {
+    .process-timeline {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .process-step {
+        flex-direction: row;
+        text-align: left;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .process-step-head {
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+
+    .process-step-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .process-step-icon svg {
+        width: 22px;
+        height: 22px;
+    }
 }
 
 .service-card,
