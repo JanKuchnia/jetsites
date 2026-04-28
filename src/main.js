@@ -37,34 +37,52 @@
             });
         });
 
-        const updateRealizationSlider = (index) => {
-            if (!realizationSlides.length || !realizationTrack) {
-                return;
-            }
+        let currentSlideIndex = 0;
 
-            const safeIndex = (index + realizationSlides.length) % realizationSlides.length;
+        const updateRealizationSlider = (index) => {
+            if (!realizationSlides.length) return;
+
+            const total = realizationSlides.length;
+            const safeIndex = (index + total) % total;
+            currentSlideIndex = safeIndex;
+
+            realizationSlides.forEach((slide, i) => {
+                // Reset classes
+                slide.className = 'realization-slide';
+
+                // Assign 3D state classes
+                if (i === safeIndex) {
+                    slide.classList.add('active');
+                } else if (i === (safeIndex - 1 + total) % total) {
+                    slide.classList.add('prev');
+                } else if (i === (safeIndex + 1) % total) {
+                    slide.classList.add('next');
+                } else {
+                    // Determine if it should hide to the left or right
+                    // For a smooth infinite loop visually, we can just use hidden-left if i < safeIndex and not wrapped
+                    // A simple heuristic for sliding direction:
+                    const diff = i - safeIndex;
+                    if (diff < -1 || (diff > 1 && safeIndex === 0)) {
+                        slide.classList.add('hidden-left');
+                    } else {
+                        slide.classList.add('hidden-right');
+                    }
+                }
+            });
+
             const activeSlide = realizationSlides[safeIndex];
             const title = activeSlide.dataset.title || 'Realizacja';
 
-            realizationTrack.style.transform = 'translateX(-' + (safeIndex * 100) + '%)';
-            realizationSliderTitle.textContent = title;
-            realizationCounter.textContent = String(safeIndex + 1).padStart(2, '0') + ' / ' + String(realizationSlides.length).padStart(2, '0');
+            if (realizationSliderTitle) realizationSliderTitle.textContent = title;
+            if (realizationCounter) realizationCounter.textContent = String(safeIndex + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
         };
 
         if (realizationPrev) {
-            realizationPrev.addEventListener('click', () => {
-                const activeTitle = realizationSliderTitle ? realizationSliderTitle.textContent : '';
-                const activeIndex = realizationSlides.findIndex((slide) => slide.dataset.title === activeTitle);
-                updateRealizationSlider(activeIndex - 1);
-            });
+            realizationPrev.addEventListener('click', () => updateRealizationSlider(currentSlideIndex - 1));
         }
 
         if (realizationNext) {
-            realizationNext.addEventListener('click', () => {
-                const activeTitle = realizationSliderTitle ? realizationSliderTitle.textContent : '';
-                const activeIndex = realizationSlides.findIndex((slide) => slide.dataset.title === activeTitle);
-                updateRealizationSlider(activeIndex + 1);
-            });
+            realizationNext.addEventListener('click', () => updateRealizationSlider(currentSlideIndex + 1));
         }
 
         updateRealizationSlider(0);

@@ -1165,18 +1165,60 @@ body.hero-copy-ready .word {
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.03);
     position: relative;
+    perspective: 1200px;
+    padding: 30px 0;
 }
 
 .realization-track {
     display: flex;
-    transition: transform 0.45s ease;
-    will-change: transform;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    position: relative;
 }
 
 .realization-slide {
-    min-width: 100%;
-    display: grid;
-    gap: 0;
+    position: absolute;
+    width: 75%;
+    max-width: 800px;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease, filter 0.6s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(4px) brightness(0.6);
+}
+
+.realization-slide.active {
+    position: relative;
+    transform: translateX(0) scale(1) rotateY(0deg) translateZ(0);
+    z-index: 10;
+    opacity: 1;
+    pointer-events: auto;
+    filter: blur(0px) brightness(1);
+}
+
+.realization-slide.prev {
+    transform: translateX(-40%) scale(0.85) rotateY(15deg) translateZ(-100px);
+    z-index: 5;
+    opacity: 0.6;
+}
+
+.realization-slide.next {
+    transform: translateX(40%) scale(0.85) rotateY(-15deg) translateZ(-100px);
+    z-index: 5;
+    opacity: 0.6;
+}
+
+.realization-slide.hidden-left {
+    transform: translateX(-80%) scale(0.7) rotateY(30deg) translateZ(-200px);
+    z-index: 1;
+    opacity: 0;
+}
+
+.realization-slide.hidden-right {
+    transform: translateX(80%) scale(0.7) rotateY(-30deg) translateZ(-200px);
+    z-index: 1;
+    opacity: 0;
 }
 
 .realization-slide-visual {
@@ -1184,6 +1226,9 @@ body.hero-copy-ready .word {
     aspect-ratio: 16 / 9;
     overflow: hidden;
     background: linear-gradient(180deg, rgba(10, 20, 34, 0.72), rgba(6, 12, 22, 0.92));
+    border-radius: 16px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .realization-slide-visual img {
@@ -1191,7 +1236,6 @@ body.hero-copy-ready .word {
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: brightness(0.88) saturate(0.98);
 }
 
 .realization-nav {
