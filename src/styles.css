@@ -1936,6 +1936,10 @@ footer {
         transform: none;
     }
 
+    .realization-slide {
+        width: 90%;
+    }
+
     .intro-logo-panel {
         width: min(92%, 360px);
         padding: 18px 18px;
