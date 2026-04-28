@@ -1245,6 +1245,7 @@ body.hero-copy-ready .word {
     display: flex;
     justify-content: space-between;
     pointer-events: none;
+    z-index: 20;
 }
 
 .realization-arrow {
@@ -1259,6 +1260,9 @@ body.hero-copy-ready .word {
     transition: transform 0.25s ease, background 0.25s ease;
     pointer-events: auto;
     backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .realization-arrow:hover,
